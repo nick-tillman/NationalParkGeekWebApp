@@ -43,6 +43,18 @@ public class JdbcSurveyDao implements SurveyDao{
 		return surveys;
 	}
 	
+	@Override
+	public void saveSurvey(Survey survey) {
+		survey.setSurveyId(getNextId());
+		String sql = "INSERT INTO survey_result(surveyid, parkcode, emailaddress, state, activitylevel) "
+																			     + "VALUES (?,?,?,?,?);";
+		jdbcTemplate.update(sql, survey.getSurveyId(),
+								 survey.getParkCode(),
+								 survey.getEmail(),
+								 survey.getState(),
+								 survey.getActivityLevel());
+	}
+	
 	private Survey mapRowToSurvey(SqlRowSet results) {
 		Survey survey = new Survey();
 		survey.setSurveyId(results.getInt("surveyid"));
@@ -52,5 +64,16 @@ public class JdbcSurveyDao implements SurveyDao{
 		survey.setActivityLevel(results.getString("activitylevel"));
 		return survey;
 	}
-
+	
+	private int getNextId() {
+		String sql = "SELECT NEXTVAL('seq_surveyid')";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+		int id;
+		if(results.next()) {
+			id = results.getInt(1);
+		} else {
+			throw new RuntimeException("Something went wrong");
+		}
+		return id;
+	}
 }
