@@ -10,9 +10,9 @@
 		<c:url var="parkDetail" value="/parkDetail?code=${park.code}" />
 		<a href="${parkDetail}"><img src="img/parks/${fn:toLowerCase(park.code)}.jpg"></a>
 		</td>
-		<td>
-		${park.name} <br>
-		${park.description}
+		<td style="font-size: 18px; vertical-align: bottom">
+		<b>${park.name}</b> <br><br>
+		<div style="border: 3px solid #4b2d10; padding: 10px">${park.description}</div>
 		</td>
 	</tr>
 </c:forEach>
