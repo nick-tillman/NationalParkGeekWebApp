@@ -2,12 +2,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Header</title>
+	<title>${param.pageTitle}</title>
 	</head>
 	<body>
-	<div class = "header">
+	<table style="width:75%; border: 3px solid black; margin-left: auto; margin-right: auto">
+		<tr>
+			<td>	
 			<c:url var="npgeekimg" value="/img/logo.png" />
-			<img src="${npgeekimg}" />
-		</div>
+			<img src="${npgeekimg}" style="max-width: 100%; max-height: auto;" />		
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: grey">
+			<h2 style="display: inline">Home</h2>
+			<h2 style="display: inline">Survey</h2>
+			</td>
+		</tr>
+
 	
-	<section>
