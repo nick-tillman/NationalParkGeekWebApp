@@ -7,8 +7,12 @@
 <c:forEach var="park" items="${allParks}">
 	<tr>
 		<td>
-		<c:url var="parkImg" value="img/parks/${fn:toLowerCase(park.code)}.jpg" />
-		<img src="${parkImg}">
+		<c:url var="parkDetail" value="/parkDetail?code=${park.code}" />
+		<a href="${parkDetail}"><img src="img/parks/${fn:toLowerCase(park.code)}.jpg"></a>
+		</td>
+		<td>
+		${park.name} <br>
+		${park.description}
 		</td>
 	</tr>
 </c:forEach>
