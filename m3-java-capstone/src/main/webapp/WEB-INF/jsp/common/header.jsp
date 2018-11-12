@@ -2,7 +2,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>${param.pageTitle}</title>
+	<title>Header</title>
 	</head>
 	<body>
+	<div class = "header">
+			<c:url var="npgeekimg" value="/img/logo.png" />
+			<img src="${npgeekimg}" />
+		</div>
+	
 	<section>
