@@ -8,7 +8,7 @@
 </tr>
 <c:forEach var="day" items="${forecast}">
 <tr>
-<td>${day.low}</td>
+<td>${day.low} ${day.high}</td>
 </tr>
 </c:forEach>
 

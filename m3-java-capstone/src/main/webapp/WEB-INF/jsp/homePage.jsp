@@ -1,19 +1,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-
 <c:import url="/WEB-INF/jsp/common/header.jsp">
-	<c:param name="pageTitle" value="" />
+	<c:param name="pageTitle" value="National Park Geek - Home Page" />
 </c:import>
+
 <c:forEach var="park" items="${allParks}">
 	<tr>
-		<td>
+		<td style = "padding: 25px 25px 0px 25px">
 		<c:url var="parkDetail" value="/parkDetail?code=${park.code}" />
 		<a href="${parkDetail}"><img src="img/parks/${fn:toLowerCase(park.code)}.jpg"></a>
 		</td>
-		<td style="font-size: 18px; vertical-align: bottom">
+		<td style="font-size: 22px; vertical-align: bottom; padding: 25px 25px 0px 0px">
 		<b>${park.name}</b> <br><br>
-		<div style="border: 3px solid #4b2d10; padding: 10px">${park.description}</div>
+		<div style="min-height: 200px; border: 3px solid #4b2d10; font-size: 17px; padding: 5px">${park.description}</div>
 		</td>
 	</tr>
 </c:forEach>
+
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

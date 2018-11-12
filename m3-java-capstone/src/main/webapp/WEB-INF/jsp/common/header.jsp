@@ -15,11 +15,12 @@
 			background-color: #fcfadb;
 		}
 		#siteLogo {
-			max-width: 100%;
-			max-height: auto;
+			max-width: auto;
+			max-height: 15%;
 		}
 		#tdNav {
 			background-color: #4b2d10;
+			color: #fcfadb;
 		}
 	</style>
 	<title>${param.pageTitle}</title>
@@ -34,8 +35,8 @@
 		</tr>
 		<tr>
 			<td colspan=3 id="tdNav">
-			<h2 style="display: inline; color: #fcfadb; white-space: pre">  Home    </h2>
-			<h2 style="display: inline; color: #fcfadb">Survey</h2>
+			<h2 style="display: inline; white-space: pre">  Home    </h2>
+			<h2 style="display: inline">Survey</h2>
 			</td>
 		</tr>
 
