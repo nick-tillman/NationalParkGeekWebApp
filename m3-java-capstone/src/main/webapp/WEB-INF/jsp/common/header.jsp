@@ -22,6 +22,22 @@
 			background-color: #4b2d10;
 			color: #fcfadb;
 		}
+		a:link {
+			color: #fcfadb;
+			text-decoration: none;
+		}
+		a:visited {
+			color: #fcfadb;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #50c327;
+			text-decoration: none;
+		}
+		a:active {
+			color: #50c327;
+			text-decoration: underline;
+		}
 	</style>
 	<title>${param.pageTitle}</title>
 	</head>
