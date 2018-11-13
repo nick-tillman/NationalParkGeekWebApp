@@ -2,12 +2,15 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp">
 	<c:param name="pageTitle" value="National Park Geek - Submit Your Survey!" />
 </c:import>
+
+<c:url var="formAction" value="/surveyForm" />
+<form method="POST" action="${formAction}">
 <tr>
 	<td>
 		Favorite National Park
 	</td>
 	<td>
-		<select>
+		<select name="parkCode">
 		<c:forEach var="park" items="${allParks}">
 			<option value="${park.code}">${park.name}</option>
 		</c:forEach>
@@ -19,7 +22,7 @@
 		Your email
 	</td>
 	<td>
-		<input type="text" name="email"/>
+		<input type="email" name="email" size="36">
 	</td>
 </tr>
 <tr>
@@ -27,7 +30,7 @@
 		State of Residence
 	</td>
 	<td>
-		<select>
+		<select name="state">
 			<option value="AL">Alabama</option>
 			<option value="AK">Alaska</option>
 			<option value="AZ">Arizona</option>
@@ -100,6 +103,5 @@
 		<input type="submit" value=" Submit" />
 	</td>
 </tr>
-
-
+</form>
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
