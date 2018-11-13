@@ -8,7 +8,7 @@
 	<tr>
 		<td style = "padding: 25px 25px 0px 25px">
 		<c:url var="parkDetail" value="/parkDetail?code=${park.code}" />
-		<a href="${parkDetail}"><img src="img/parks/${fn:toLowerCase(park.code)}.jpg"></a>
+		<a href="${parkDetail}"><img src="img/parks/${fn:toLowerCase(park.code)}.jpg" style="width: 500px"></a>
 		</td>
 		<td style="font-size: 22px; vertical-align: bottom; padding: 25px 25px 0px 0px">
 		<b>${park.name}</b> <br><br>
