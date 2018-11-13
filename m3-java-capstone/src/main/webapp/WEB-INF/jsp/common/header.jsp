@@ -8,7 +8,7 @@
 			font-family: didot;
 		}
 		table {
-			width:75%;
+			width: 1080px;
 			border: 3px solid #4b2d10;
 			margin-left: auto;
 			margin-right: auto;
@@ -28,15 +28,17 @@
 	<body>
 	<table>
 		<tr>
-			<td colspan=3>	
+			<td colspan=2>	
 			<c:url var="npgeekimg" value="/img/logo.png" />
 			<img src="${npgeekimg}" id="siteLogo" alt="site logo"/>		
 			</td>
 		</tr>
 		<tr>
-			<td colspan=3 id="tdNav">
-			<h2 style="display: inline; white-space: pre">  Home    </h2>
-			<h2 style="display: inline">Survey</h2>
+			<td colspan=2 id="tdNav">
+			<c:url var="homeLink" value="/" />
+			<c:url var="surveyLink" value="/surveyForm" />
+			<h2 style="display: inline; white-space: pre">  <a href="${homeLink}">Home</a>    </h2>
+			<h2 style="display: inline"><a href="${surveyLink}">Survey</a></h2>
 			</td>
 		</tr>
 
