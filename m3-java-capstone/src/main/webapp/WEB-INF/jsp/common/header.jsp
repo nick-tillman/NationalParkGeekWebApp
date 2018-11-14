@@ -54,8 +54,6 @@
 				<h2 style="display: inline; white-space: pre"><a href="${surveyLink}">Survey</a>    </h2>
 				<h2 style="display: inline; white-space: pre"><a href="${surveyFavs}">Favorite Parks</a></h2>
 			</td>
-			<td>
-			</td>
 		</tr>
 
 	
