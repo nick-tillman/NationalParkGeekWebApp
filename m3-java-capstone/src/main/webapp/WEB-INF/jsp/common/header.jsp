@@ -53,10 +53,6 @@
 				<h2 style="display: inline; white-space: pre">  <a href="${homeLink}">Home</a>    </h2>
 				<h2 style="display: inline; white-space: pre"><a href="${surveyLink}">Survey</a>    </h2>
 				<h2 style="display: inline; white-space: pre"><a href="${surveyFavs}">Favorite Parks</a></h2>
-				<div style="border: 1px solid black; display: inline; text-align: right; width: 100%">
-				<input type="radio" name="tempScale" value="f">Fahrenheit
-				<input type="radio" name="tempScale" value="c">Celsius
-				</div>
 			</td>
 			<td>
 			</td>
