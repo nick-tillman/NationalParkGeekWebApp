@@ -18,7 +18,7 @@
 			max-width: auto;
 			max-height: 15%;
 		}
-		#tdNav {
+		.tdNav {
 			background-color: #4b2d10;
 			color: #fcfadb;
 		}
@@ -40,19 +40,25 @@
 	<body>
 	<table>
 		<tr>
-			<td colspan=5>	
+			<td colspan="5">	
 			<c:url var="npgeekimg" value="/img/logo.png" />
 			<img src="${npgeekimg}" id="siteLogo" alt="site logo"/>		
 			</td>
 		</tr>
 		<tr>
-			<td colspan=5 id="tdNav">
-			<c:url var="homeLink" value="/" />
-			<c:url var="surveyLink" value="/surveyForm" />
-			<c:url var="surveyFavs" value="/surveyFavorites" />
-			<h2 style="display: inline; white-space: pre">  <a href="${homeLink}">Home</a>    </h2>
-			<h2 style="display: inline; white-space: pre"><a href="${surveyLink}">Survey</a>    </h2>
-			<h2 style="display: inline"><a href="${surveyFavs}">Favorite Parks</a></h2>
+			<td colspan="5" class="tdNav">
+				<c:url var="homeLink" value="/" />
+				<c:url var="surveyLink" value="/surveyForm" />
+				<c:url var="surveyFavs" value="/surveyFavorites" />
+				<h2 style="display: inline; white-space: pre">  <a href="${homeLink}">Home</a>    </h2>
+				<h2 style="display: inline; white-space: pre"><a href="${surveyLink}">Survey</a>    </h2>
+				<h2 style="display: inline; white-space: pre"><a href="${surveyFavs}">Favorite Parks</a></h2>
+				<div style="border: 1px solid black; display: inline; text-align: right; width: 100%">
+				<input type="radio" name="tempScale" value="f">Fahrenheit
+				<input type="radio" name="tempScale" value="c">Celsius
+				</div>
+			</td>
+			<td>
 			</td>
 		</tr>
 
