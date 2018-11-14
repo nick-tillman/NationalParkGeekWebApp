@@ -101,7 +101,7 @@
 <c:choose>
 <c:when test="${day.fiveDayForecastValue == 1}">
 <c:set var="imageOne" value="<img src='img/weather/${imageName}' >" />
-<td style="padding: 25px 0px 0px 25px; display: inline-block; text-align: center">
+<td style="padding: 25px 0px 0px 25px; display:inline-block; text-align: center">
 <h3 style="color:#50c327;  text-align: center">     5-DAY FORECAST</h3> 
 
 <c:url var="formAction" value="/parkDetail" />
@@ -119,7 +119,7 @@ ${imageOne}<br>
 </td>
 </c:when>
 <c:otherwise>
-<c:set var="imageOne" value="<img src='img/weather/${imageName}' style='width: 100px; padding:0px 0px 0px 0px'>" />
+<c:set var="imageOne" value="<img src='img/weather/${imageName} 'style='width: 100px; padding:0px 0px 0px 0px'>" />
 <td>
 ${imageOne}<br>
 <b style="color:#50c327">High:</b> ${high}<br>
