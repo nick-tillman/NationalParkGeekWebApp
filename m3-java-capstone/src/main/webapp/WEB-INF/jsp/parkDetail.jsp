@@ -78,61 +78,59 @@
 </tr>
 
 <tr>
-<td colspan="2" style="text-align: center">
-<c:forEach var="day" items="${forecast}">
-<c:choose>
-	<c:when test="${day.forecast == 'partly cloudy'}">
-		<c:set var="forecastFilename" value="partlyCloudy.png"/>
-	</c:when>
-	<c:otherwise>
-		<c:set var="forecastFilename" value="${day.forecast}.png" />
-	</c:otherwise>
-</c:choose>
-
-<c:choose>
-	<c:when test="${sessionScope.tempScale == 'C'}">
-		<c:set var="high" value="${Math.round(((day.high) - 32) * (5/9))} C" />
-		<c:set var="low" value="${Math.round(((day.low) - 32) * (5/9))} C" />
-		<c:set var="tempOptions" value="<option value='C'>C</option><option value='F'>F</option>" />
-	</c:when>
-	<c:otherwise>
-			<c:set var="high" value="${day.high} F" />
-		<c:set var="low" value="${day.low} F" />
-		<c:set var="tempOptions" value="<option value='F'>F</option><option value='C'>C</option>" />
-	</c:otherwise>
-</c:choose>
-
-<c:choose>
-	<c:when test="${day.fiveDayForecastValue == 1}">
-		<c:set var="forecastImage" value="<img src='img/weather/${forecastFilename}' >" />
-		<div style="display:inline-block">
-			<h3 style="margin: 0; color:#50c327">5-DAY FORECAST</h3> 
-			<c:url var="formAction" value="/parkDetail?code=${park.code}" />
-			<form method="POST" action="${formAction}">
-				Temp Scale 
-				<select name="tempScale">
-					${tempOptions}
-				</select>
-				<input type="submit" name=" Submit" />
-			</form>
-			<b>TODAY</b><br>
-			${forecastImage}<br>
-			<b style="color:#50c327">High:</b> ${high}<br>
-			<b style="color:#4da6ff">Low:</b> ${low}<br>
-			<b>Forecast:</b> ${day.forecast}
-		</div>
-	</c:when>
-	<c:otherwise>
-		<c:set var="forecastImage" value="<img src='img/weather/${forecastFilename} 'style='width: 100px'>" />
-		<div style="display: inline-block; padding: 0px 25px 0px 25px">
-			${forecastImage}<br>
-			<b style="color:#50c327">High:</b> ${high}<br>
-			<b style="color:#4da6ff">Low:</b> ${low} 
-		</div>
-	</c:otherwise>
-</c:choose>
-</c:forEach>
-</td>
+	<td colspan="2" style="text-align: center">
+	<c:forEach var="day" items="${forecast}">
+	<c:choose>
+		<c:when test="${day.forecast == 'partly cloudy'}">
+			<c:set var="forecastFilename" value="partlyCloudy.png"/>
+		</c:when>
+		<c:otherwise>
+			<c:set var="forecastFilename" value="${day.forecast}.png" />
+		</c:otherwise>
+	</c:choose>
+	
+	<c:choose>
+		<c:when test="${sessionScope.tempScale == 'C'}">
+			<c:set var="high" value="${Math.round(((day.high) - 32) * (5/9))} C" />
+			<c:set var="low" value="${Math.round(((day.low) - 32) * (5/9))} C" />
+			<c:set var="tempOptions" value="<option value='C'>C</option><option value='F'>F</option>" />
+		</c:when>
+		<c:otherwise>
+				<c:set var="high" value="${day.high} F" />
+			<c:set var="low" value="${day.low} F" />
+			<c:set var="tempOptions" value="<option value='F'>F</option><option value='C'>C</option>" />
+		</c:otherwise>
+	</c:choose>
+	
+	<c:choose>
+		<c:when test="${day.fiveDayForecastValue == 1}">
+			<div style="display:inline-block">
+				<h3 style="margin: 0; color:#50c327">5-DAY FORECAST</h3> 
+				<c:url var="formAction" value="/parkDetail?code=${park.code}" />
+				<form method="POST" action="${formAction}">
+					Temp Scale 
+					<select name="tempScale">
+						${tempOptions}
+					</select>
+					<input type="submit" name=" Submit" />
+				</form>
+				<b>TODAY</b><br>
+				<img src="img/weather/${forecastFilename}" ><br>
+				<b style="color:#50c327">High:</b> ${high}<br>
+				<b style="color:#4da6ff">Low:</b> ${low}<br>
+				<b>Forecast:</b> ${day.forecast}
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div style="display: inline-block; padding: 125px 25px 0px 25px; vertical-align: top">
+				<img src="img/weather/${forecastFilename}" style="width: 100px"><br>
+				<b style="color:#50c327">High:</b> ${high}<br>
+				<b style="color:#4da6ff">Low:</b> ${low} 
+			</div>
+		</c:otherwise>
+	</c:choose>
+	</c:forEach>
+	</td>
 </tr>
 
 <tr>
