@@ -34,6 +34,10 @@
 			color: #50c327;
 			text-decoration: underline;
 		}
+		.hdNav {
+			display: inline; 
+			white-space: pre;
+		}
 	</style>
 	<title>${param.pageTitle}</title>
 	</head>
@@ -50,9 +54,9 @@
 				<c:url var="homeLink" value="/" />
 				<c:url var="surveyLink" value="/surveyForm" />
 				<c:url var="surveyFavs" value="/surveyFavorites" />
-				<h2 style="display: inline; white-space: pre">  <a href="${homeLink}">Home</a>    </h2>
-				<h2 style="display: inline; white-space: pre"><a href="${surveyLink}">Survey</a>    </h2>
-				<h2 style="display: inline; white-space: pre"><a href="${surveyFavs}">Favorite Parks</a></h2>
+				<h2 class="hdNav">  <a href="${homeLink}">Home</a>    </h2>
+				<h2 class="hdNav"><a href="${surveyLink}">Survey</a>    </h2>
+				<h2 class="hdNav"><a href="${surveyFavs}">Favorite Parks</a></h2>
 			</td>
 		</tr>
 

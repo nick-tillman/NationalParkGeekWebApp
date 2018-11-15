@@ -37,13 +37,17 @@ public class SurveyController {
 		 					  @RequestParam String state,
 		 					  @RequestParam String activitylvl) {
 		
-		Survey survey = new Survey();
-		survey.setParkCode(parkCode);
-		survey.setEmail(email);
-		survey.setState(state);
-		survey.setActivityLevel(activitylvl);
-		surveyDao.saveSurvey(survey);
-		return "redirect:/surveyFavorites";
+		if(!email.contains("@") || email.equals("") || (!email.contains(".com") && !email.contains(".net"))) {
+			return "redirect:/surveyForm";
+		} else {
+			Survey survey = new Survey();
+			survey.setParkCode(parkCode);
+			survey.setEmail(email);
+			survey.setState(state);
+			survey.setActivityLevel(activitylvl);
+			surveyDao.saveSurvey(survey);
+			return "redirect:/surveyFavorites";
+		}
 	}
 	
 	@RequestMapping(path="/surveyFavorites", method=RequestMethod.GET)

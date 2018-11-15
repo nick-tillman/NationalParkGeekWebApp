@@ -3,6 +3,13 @@
 	<c:param name="pageTitle" value="National Park Geek - Submit Your Survey!" />
 </c:import>
 
+<tr>
+	<td colspan="2" style="padding: 25px 25px 25px 25px">
+		<h3 style="margin: 0">Thanks for visiting National Park Geek! Please submit a survey below telling us which park you think
+		is the best!</h3>
+	</td>
+</tr>
+
 <c:url var="formAction" value="/surveyForm" />
 <form method="POST" action="${formAction}">
 <tr>
