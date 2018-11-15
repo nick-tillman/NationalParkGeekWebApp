@@ -1,88 +1,92 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <c:import url="/WEB-INF/jsp/common/header.jsp">
-	<c:param name="pageTitle" value="" />
+	<c:param name="pageTitle" value="${park.name} - National Park Geek" />
 </c:import>
 
 <tr>
-<td colspan="5" style="padding: 25px 25px 20px 25px">
-<figure style="width:auto; height: 475px; overflow:hidden; margin:0">
-<img style="width: 100%" src="img/parks/${fn:toLowerCase(park.code)}.jpg">
-</figure>
-</td>
+	<td colspan="5" style="padding: 25px 25px 20px 25px">
+		<figure style="width:auto; height: 475px; overflow:hidden; margin:0">
+			<img style="width: 100%" src="img/parks/${fn:toLowerCase(park.code)}.jpg">
+		</figure>
+	</td>
 </tr>
 
 
 <tr>
-<td colspan="5" style="font-size: 18px; padding: 5px 25px 20px 25px">"${park.inspirationalQuote}"</td>
+	<td colspan="2" class="pdTR1" style="font-size: 18px">"${park.inspirationalQuote}"</td>
+</tr> 
+<tr>
+	<td colspan="2" class="pdTR1"> - ${park.inspirationalQuoteSource}</td>
+</tr>
+<tr>
+	<td colspan="2" class="pdTR1"><h2>${park.name}</h2></td>
+</tr>
+<tr>
+	<td colspan="2" class="pdTR1">${park.description}</td>
+</tr>
+
+
+<tr>
+	<td class="pdTR2left">
+		<b>State:</b> ${park.state}
+	</td>
+	<td class="pdTR2right">
+		<b>Acreage:</b> ${park.acreage}    
+	</td>
+</tr>
+
+<tr>
+	<td class="pdTR2left">
+		<b>Entry Fee:</b> $${park.entryFee} 
+	</td>
+	<td class="pdTR2right">
+		<b>Miles of Trail:</b> ${park.milesOfTrail}
+	</td>
 </tr> 
 
 <tr>
-<td colspan="5" style="padding: 5px 25px 20px 25px"> - ${park.inspirationalQuoteSource}</td>
-</tr>
- 
-<tr>
-<td colspan="5" style="padding: 5px 25px 20px 25px"><h2>${park.name}</h2></td>
-</tr>
-
-<tr>
-<td colspan="5" style="padding: 5px 25px 20px 25px">${park.description}</td>
+	<td class="pdTR2left">
+		<b>Year Founded: </b> ${park.yearFounded}
+	</td>
+	<td class="pdTR2right">
+		<b>Number of Campsites:</b> ${park.numberOfCampsites}
+	</td>
 </tr>
 
 <tr>
-<td style="padding: 0px 25px 0px 25px">
-<b>State:</b> ${park.state}
-</td>
-
-<td colspan="4" style="padding: 0px 500px 0px 0px">
-<b>Acreage:</b> ${park.acreage}    
-</td>
+	<td class="pdTR2left">
+		<b>Elevation in Feet:</b> ${park.elevationInFeet}
+	</td>
+	<td class="pdTR2right">
+		<b>Climate:</b> ${park.climate}
+	</td>
 </tr>
 
 <tr>
-<td style="padding: 0px 25px 0px 25px">
-<b>Entry Fee:</b> $${park.entryFee} 
-</td>
-<td colspan="4" style="padding: 0px 100px 0px 0px">
-<b>Miles of Trail:</b> ${park.milesOfTrail}
-</td>
-</tr> 
-
-<tr>
-<td style="padding: 0px 25px 0px 25px">
-<b>Year Founded: </b> ${park.yearFounded}
-</td>
-<td colspan="4" style="padding: 0px 100px 0px 0px">
-<b>Number of Campsites:</b> ${park.numberOfCampsites}
-</td>
+	<td class="pdTR2left">
+		<b>Annual Visitor Count:</b> ${park.annualVisitorCount}
+	</td>
+	<td class="pdTR2right">
+		<b>Number Of Animal Species:</b> ${park.numberOfAnimalSpecies}
+	</td>
 </tr>
 
 <tr>
-<td style="padding: 0px 25px 0px 25px">
-<b>Elevation in Feet:</b> ${park.elevationInFeet}
-</td>
-<td colspan="4" style="padding: 0px 100px 0px 0px">
-<b>Climate:</b> ${park.climate}
-</td>
+	<td style="padding: 25px">
+	</td>
 </tr>
 
 <tr>
-<td style="padding: 0px 25px 0px 25px">
-<b>Annual Visitor Count:</b> ${park.annualVisitorCount}
-</td>
-<td colspan="4" style="padding: 0px 100px 0px 0px">
-<b>Number Of Animal Species:</b> ${park.numberOfAnimalSpecies}
-</td>
-</tr>
-<tr>
+<td colspan="2" style="text-align: center">
 <c:forEach var="day" items="${forecast}">
 <c:choose>
-<c:when test="${day.forecast == 'partly cloudy'}">
-<c:set var="imageName" value="partlyCloudy.png"/>
-</c:when>
-<c:otherwise>
-<c:set var="imageName" value="${day.forecast}.png" />
-</c:otherwise>
+	<c:when test="${day.forecast == 'partly cloudy'}">
+		<c:set var="forecastFilename" value="partlyCloudy.png"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="forecastFilename" value="${day.forecast}.png" />
+	</c:otherwise>
 </c:choose>
 
 <c:choose>
@@ -99,95 +103,41 @@
 </c:choose>
 
 <c:choose>
-<c:when test="${day.fiveDayForecastValue == 1}">
-<c:set var="imageOne" value="<img src='img/weather/${imageName}' >" />
-<td style="padding: 25px 0px 0px 25px; display:inline-block; text-align: center">
-<h3 style="color:#50c327;  text-align: center">     5-DAY FORECAST</h3> 
-
-<<<<<<< HEAD
-<c:url var="formAction" value="/parkDetail?code=${park.code}" />
-=======
-<c:url var="formAction" value="/parkDetail" />
->>>>>>> 5d09ce75df2d13e26dad63cf4f618b27226bdda4
-<form style="display:inline-block; method="POST" action="${formAction}">
-<select name="tempScale">
-${tempOptions}
-</select>
-<input type="submit" name=" Submit" /><br>
-</form>
-<b>TODAY</b><br>
-${imageOne}<br>
-<b style="color:#50c327">High:</b> ${high}<br>
-<b style="color:#4da6ff">Low:</b> ${low}<br>
-<b>Forecast:</b> ${day.forecast}
-</td>
-</c:when>
-<c:otherwise>
-<c:set var="imageOne" value="<img src='img/weather/${imageName} 'style='width: 100px; padding:0px 0px 0px 0px'>" />
-<td>
-${imageOne}<br>
-<b style="color:#50c327">High:</b> ${high}<br>
-<b style="color:#4da6ff">Low:</b> ${low} 
-</td>
-</c:otherwise>
+	<c:when test="${day.fiveDayForecastValue == 1}">
+		<c:set var="forecastImage" value="<img src='img/weather/${forecastFilename}' >" />
+		<div style="display:inline-block">
+			<h3 style="margin: 0; color:#50c327">5-DAY FORECAST</h3> 
+			<c:url var="formAction" value="/parkDetail?code=${park.code}" />
+			<form method="POST" action="${formAction}">
+				Temp Scale 
+				<select name="tempScale">
+					${tempOptions}
+				</select>
+				<input type="submit" name=" Submit" />
+			</form>
+			<b>TODAY</b><br>
+			${forecastImage}<br>
+			<b style="color:#50c327">High:</b> ${high}<br>
+			<b style="color:#4da6ff">Low:</b> ${low}<br>
+			<b>Forecast:</b> ${day.forecast}
+		</div>
+	</c:when>
+	<c:otherwise>
+		<c:set var="forecastImage" value="<img src='img/weather/${forecastFilename} 'style='width: 100px'>" />
+		<div style="display: inline-block; padding: 0px 25px 0px 25px">
+			${forecastImage}<br>
+			<b style="color:#50c327">High:</b> ${high}<br>
+			<b style="color:#4da6ff">Low:</b> ${low} 
+		</div>
+	</c:otherwise>
 </c:choose>
 </c:forEach>
+</td>
 </tr>
 
-
-
+<tr>
+	<td style="padding: 25px">
+	</td>
+</tr>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
-
-
-<!-- &&&&&&&&&&&&&&&&&&&&&&&&&& -->
-
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-
-<c:import url="/WEB-INF/jsp/common/header.jsp">
-
-	<c:param name="pageTitle" value="" />
-
-</c:import>
-
-
-
-<tr>
-
-
-
-<td>
-
-<figure style="width:auto; height: 475px; overflow:hidden; margin:0">
-
-<img style="width: 100%" src="img/parks/${fn:toLowerCase(park.code)}.jpg">
-
-</figure>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>${park.name}</td>
-
-</tr>
-
-<c:forEach var="day" items="${forecast}">
-
-<tr>
-
-<td>${day.low}</td>
-
-</tr>
-
-</c:forEach>
-
-
-
-
-
-<c:import url="/WEB-INF/jsp/common/footer.jsp" /> --%>

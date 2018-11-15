@@ -38,19 +38,28 @@
 			display: inline; 
 			white-space: pre;
 		}
+		.pdTR1 {
+			padding: 5px 25px 20px 25px;
+		}
+		.pdTR2left {
+			padding: 0px 25px 0px 25px
+		}
+		.pdTR2right {
+			padding: 0px 500px 0px 0px
+		}
 	</style>
 	<title>${param.pageTitle}</title>
 	</head>
 	<body>
 	<table>
 		<tr>
-			<td colspan="5">	
+			<td colspan="3">	
 			<c:url var="npgeekimg" value="/img/logo.png" />
 			<img src="${npgeekimg}" id="siteLogo" alt="site logo"/>		
 			</td>
 		</tr>
 		<tr>
-			<td colspan="5" class="tdNav">
+			<td colspan="3" class="tdNav">
 				<c:url var="homeLink" value="/" />
 				<c:url var="surveyLink" value="/surveyForm" />
 				<c:url var="surveyFavs" value="/surveyFavorites" />
